@@ -69,10 +69,10 @@ function ProjectPage({ params }: ProjectPageProps) {
 
         const [projectRes, chatsRes, documentsRes, settingsRes] =
           await Promise.all([
-            apiClient.get(`/api/projects/${projectId}`, token),
-            apiClient.get(`/api/projects/${projectId}/chats`, token),
-            apiClient.get(`/api/projects/${projectId}/files`, token),
-            apiClient.get(`/api/projects/${projectId}/settings`, token),
+            apiClient.get(`/api/projects/${projectId}/`, token),
+            apiClient.get(`/api/projects/${projectId}/chats/`, token),
+            apiClient.get(`/api/projects/${projectId}/files/`, token),
+            apiClient.get(`/api/projects/${projectId}/settings/`, token),
           ]);
 
         setData({
@@ -110,7 +110,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       try {
         const token = await getToken();
         const documentsRes = await apiClient.get(
-          `/api/projects/${projectId}/files`,
+          `/api/projects/${projectId}/files/`,
           token
         );
 
@@ -208,7 +208,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       try {
         // Step 1: Get presigned URL
         const uploadData = await apiClient.post(
-          `/api/projects/${projectId}/files/upload-url`,
+          `/api/projects/${projectId}/files/upload-url/`,
           {
             filename: file.name,
             file_size: file.size,
@@ -224,7 +224,7 @@ function ProjectPage({ params }: ProjectPageProps) {
 
         // Step 3: Confirm upload to the server (starts background processing)
         const updatedDocument = await apiClient.post(
-          `/api/projects/${projectId}/files/confirm`,
+          `/api/projects/${projectId}/files/confirm/`,
           {
             s3_key,
           },
@@ -258,7 +258,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       const token = await getToken();
 
       await apiClient.delete(
-        `/api/projects/${projectId}/files/${documentId}`,
+        `/api/projects/${projectId}/files/${documentId}/`,
         token
       );
 
@@ -281,7 +281,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       const token = await getToken();
 
       const result = await apiClient.post(
-        `/api/projects/${projectId}/urls`,
+        `/api/projects/${projectId}/urls/`,
         {
           url,
         },
@@ -337,7 +337,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       const token = await getToken();
 
       const result = await apiClient.put(
-        `/api/projects/${projectId}/settings`,
+        `/api/projects/${projectId}/settings/`,
         data.settings,
         token
       );

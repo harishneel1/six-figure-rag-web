@@ -90,7 +90,7 @@ export function FileDetailsModal({ document, onClose }: FileDetailsModalProps) {
     try {
       setChunksLoading(true);
       const result = await apiClient.get(
-        `/api/projects/${document.project_id}/files/${document.id}/chunks`,
+        `/api/projects/${document.project_id}/files/${document.id}/chunks/`,
         token
       );
 
