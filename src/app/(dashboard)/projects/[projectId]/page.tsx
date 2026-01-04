@@ -208,7 +208,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       try {
         // Step 1: Get presigned URL
         const uploadData = await apiClient.post(
-          `/api/projects/${projectId}/files/upload-url/`,
+          `/api/projects/${projectId}/files/upload-url`,
           {
             filename: file.name,
             file_size: file.size,
