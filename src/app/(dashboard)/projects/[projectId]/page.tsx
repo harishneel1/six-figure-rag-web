@@ -110,7 +110,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       try {
         const token = await getToken();
         const documentsRes = await apiClient.get(
-          `/api/projects/${projectId}/files/`,
+          `/api/projects/${projectId}/files`,
           token
         );
 
