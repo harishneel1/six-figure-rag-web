@@ -258,7 +258,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       const token = await getToken();
 
       await apiClient.delete(
-        `/api/projects/${projectId}/files/${documentId}/`,
+        `/api/projects/${projectId}/files/${documentId}`,
         token
       );
 

@@ -97,7 +97,7 @@ function ProjectsPage() {
       setError(null);
       const token = await getToken();
 
-      await apiClient.delete(`/api/projects/${projectId}/`, token);
+      await apiClient.delete(`/api/projects/${projectId}`, token);
 
       setProjects((prev) => prev.filter((project) => project.id !== projectId));
 
