@@ -69,10 +69,10 @@ function ProjectPage({ params }: ProjectPageProps) {
 
         const [projectRes, chatsRes, documentsRes, settingsRes] =
           await Promise.all([
-            apiClient.get(`/api/projects/${projectId}/`, token),
-            apiClient.get(`/api/projects/${projectId}/chats/`, token),
-            apiClient.get(`/api/projects/${projectId}/files/`, token),
-            apiClient.get(`/api/projects/${projectId}/settings/`, token),
+            apiClient.get(`/api/projects/${projectId}`, token),
+            apiClient.get(`/api/projects/${projectId}/chats`, token),
+            apiClient.get(`/api/projects/${projectId}/files`, token),
+            apiClient.get(`/api/projects/${projectId}/settings`, token),
           ]);
 
         setData({
@@ -337,7 +337,7 @@ function ProjectPage({ params }: ProjectPageProps) {
       const token = await getToken();
 
       const result = await apiClient.put(
-        `/api/projects/${projectId}/settings/`,
+        `/api/projects/${projectId}/settings`,
         data.settings,
         token
       );
