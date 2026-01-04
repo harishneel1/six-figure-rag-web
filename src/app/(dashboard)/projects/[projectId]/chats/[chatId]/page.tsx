@@ -91,7 +91,7 @@ export default function ProjectChatPage({ params }: ProjectChatPageProps) {
 
       // Build the streaming URL with query params
       const streamUrl = new URL(
-        `${API_BASE_URL}/api/projects/${projectId}/chats/${currentChatData.id}/messages/stream/`
+        `${API_BASE_URL}/api/projects/${projectId}/chats/${currentChatData.id}/messages/stream`
       );
       streamUrl.searchParams.set("token", token || "");
       streamUrl.searchParams.set("clerk_id", userId);
