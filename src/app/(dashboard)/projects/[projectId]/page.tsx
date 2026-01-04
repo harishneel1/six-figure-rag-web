@@ -224,7 +224,7 @@ function ProjectPage({ params }: ProjectPageProps) {
 
         // Step 3: Confirm upload to the server (starts background processing)
         const updatedDocument = await apiClient.post(
-          `/api/projects/${projectId}/files/confirm/`,
+          `/api/projects/${projectId}/files/confirm`,
           {
             s3_key,
           },
